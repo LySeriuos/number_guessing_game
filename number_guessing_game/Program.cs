@@ -5,7 +5,7 @@ namespace number_guessing_game
     internal class Program
     {
         static void Main(string[] args)
-        {
+        {   //game introduction and rools
             Console.WriteLine("\n\t\t\t\t\tWelcome to 'Guess the number' game! \n\n\nRools are very simple:  " +
                 "\n\tComputer will get the number and you must guess it." +
                 "\n\tYou will enter a number and computer will give you " +
