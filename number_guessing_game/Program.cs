@@ -14,7 +14,8 @@ namespace number_guessing_game
             Console.WriteLine("Guess Your number!"); 
             int userNumber = Convert.ToInt32(Console.ReadLine()); //converting user's string input to int
 
-            int randomNumber = new Random().Next();
+            int randomNumber = new Random().Next(101); // it gives the random number from 0 to 100
+            Console.WriteLine($"{randomNumber}");
             if (randomNumber == userNumber)
                 Console.WriteLine("Good guess");
         }
