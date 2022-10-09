@@ -17,7 +17,11 @@ namespace number_guessing_game
             int randomNumber = new Random().Next(101); // it gives the random number from 0 to 100
             Console.WriteLine($"{randomNumber}");
             if (randomNumber == userNumber)
-                Console.WriteLine("Good guess");
+                Console.WriteLine("You win!");
+            else if (randomNumber < userNumber)
+                Console.WriteLine("Too High!");
+            else if (randomNumber > userNumber)
+                Console.WriteLine("Too Low!");
         }
     }
 }
