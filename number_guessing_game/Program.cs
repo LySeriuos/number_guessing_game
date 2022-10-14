@@ -22,24 +22,30 @@ namespace number_guessing_game
                 int numberRange = userNumber - randomNumber; // count difference between user input number and random number
                 if (randomNumber == userNumber)
                 {
-                    Console.WriteLine("You win! Left attempts {0}. Good job!", i);
+                    Console.WriteLine($"You win! Left attempts {i}. Good job!");
                     return;
                 }
                 if (randomNumber < userNumber)
                 {
                     if (-5 <= numberRange && numberRange <= 5) // user's number is lower up to 5 or higher up to 5 random number
-                        Console.WriteLine("You are close! Left Tries {0}", i);
+                        Console.WriteLine($"You are close! Left Attempts: {i}");
                        
-                    Console.WriteLine("Too High! Left attempts {0}", i);
+                    Console.WriteLine($"Too High! Left attempts: {i}");
 
                 }
                 if (randomNumber > userNumber)
                 {
                     if (-5 <= numberRange && numberRange <= 5) // user's number is lower up to 5 or higher up to 5 random number
-                        Console.WriteLine("You are close! Left attempts {0}", i);
+                        Console.WriteLine($"You are close! Left attempts {i}");
                         
-                    Console.WriteLine("Too Low! Left attempts {0}", i);
+                    Console.WriteLine($"Too Low! Left attempts: {i}");
                 }
+
+                if (i == 1) // Would be great to change sentence if only 1 try lef to "Your Last attempt"
+                {
+
+                }
+                
             }
             Console.WriteLine("You had too many attempts! Try again!");
         }
