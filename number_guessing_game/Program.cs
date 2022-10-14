@@ -12,9 +12,9 @@ namespace number_guessing_game
                 "answer if it is too low or too high.\n\tYou will have 5 tries and if you can't get the right number you will loose!");
             int randomNumber = new Random().Next(101); // it gives the random number from 0 to 100
             Console.WriteLine($"{randomNumber}"); // Printing the random number to check how the IF statements reacting
-            int i = 1; // this will be using to limit guesses
+             // this will be using to limit guesses
 
-            while (i<=5) // this code is active until user gets right number or until it uses all 5 tries
+            for (int i = 4; i >= 0; i--) // this code is active until user gets right number or until it uses all 5 tries
             {
                 Console.WriteLine("Guess Your number!");
                 int userNumber = Convert.ToInt32(Console.ReadLine()); //converting user's string input to int
@@ -22,33 +22,26 @@ namespace number_guessing_game
                 int numberRange = userNumber - randomNumber; // count difference between user input number and random number
                 if (randomNumber == userNumber)
                 {
-                    Console.WriteLine("You win! Tries {0}", i);
-                    i++;
-                    break;
+                    Console.WriteLine("You win! Left attempts {0}. Good job!", i);
+                    return;
                 }
-                else if (randomNumber < userNumber)
+                if (randomNumber < userNumber)
                 {
                     if (-5 <= numberRange && numberRange <= 5) // user's number is lower up to 5 or higher up to 5 random number
-                        Console.WriteLine("You are close! Tries {0}", i);
+                        Console.WriteLine("You are close! Left Tries {0}", i);
                        
-                    Console.WriteLine("Too High! Tries {0}", i);
-                    i++;
-                    continue;
+                    Console.WriteLine("Too High! Left attempts {0}", i);
 
                 }
-                else if (randomNumber > userNumber)
+                if (randomNumber > userNumber)
                 {
                     if (-5 <= numberRange && numberRange <= 5) // user's number is lower up to 5 or higher up to 5 random number
-                        Console.WriteLine("You are close! Tries {0}", i);
+                        Console.WriteLine("You are close! Left attempts {0}", i);
                         
-                    Console.WriteLine("Too Low! Tries {0}", i);
-                    i++;
-                    continue;
-                }            
-                                
-                Console.WriteLine("You had too many tries Tries {0}");
-                
+                    Console.WriteLine("Too Low! Left attempts {0}", i);
+                }
             }
+            Console.WriteLine("You had too many attempts! Try again!");
         }
     }
 }
