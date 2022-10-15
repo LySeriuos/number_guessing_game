@@ -23,29 +23,21 @@ namespace number_guessing_game
                 if (randomNumber == userNumber)
                 {
                     Console.WriteLine($"You win! Left attempts {i}. Good job!");
-                    return;
+                    return; // quiting the for loop if the user input is equal to random number
                 }
-                if (randomNumber < userNumber)
-                {
-                    if (-5 <= numberRange && numberRange <= 5) // user's number is lower up to 5 or higher up to 5 random number
-                        Console.WriteLine($"You are close! Left Attempts: {i}");
-                       
+
+                if (randomNumber < userNumber) // if the random number is lower than user's input number
+                {    
                     Console.WriteLine($"Too High! Left attempts: {i}");
-
-                }
-                if (randomNumber > userNumber)
-                {
-                    if (-5 <= numberRange && numberRange <= 5) // user's number is lower up to 5 or higher up to 5 random number
-                        Console.WriteLine($"You are close! Left attempts {i}");
-                        
-                    Console.WriteLine($"Too Low! Left attempts: {i}");
                 }
 
-                if (i == 1) // Would be great to change sentence if only 1 try lef to "Your Last attempt"
-                {
-
+                if (randomNumber > userNumber) // if the random number is higher than user's input number
+                {    
+                Console.WriteLine($"Too Low! Left attempts: {i}");
                 }
-                
+
+                if (-5 <= numberRange && numberRange <= 5) // if user's number is lower up to 5 or higher up to 5 random number
+                    Console.WriteLine($"You are close!");                
             }
             Console.WriteLine("You had too many attempts! Try again!");
         }
