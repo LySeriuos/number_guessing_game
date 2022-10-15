@@ -24,16 +24,17 @@ namespace number_guessing_game
                     Console.WriteLine($"You win! Left attempts {i}. Good job!");
                     return; // quiting the for loop if the user input is equal to random number
                 }
-                if (randomNumber < userNumber) // if the random number is lower than user's input number
+                // i >= 1 is to filter output after the last try, user will get only "Try again!" output instead of all possible
+                if (randomNumber < userNumber && i >= 1) // if the random number is lower than user's input number and {i} is bigger than 1
                 {    
                     Console.WriteLine($"Too High! Left attempts: {i}");
                 }
-                if (randomNumber > userNumber) // if the random number is higher than user's input number
+                if (randomNumber > userNumber && i >= 1) // if the random number is higher than user's input number
                 {    
                 Console.WriteLine($"Too Low! Left attempts: {i}");
                 }
-                if (-5 <= numberRange && numberRange <= 5) // if user's number is lower up to 5 or higher up to 5 random number
-                    Console.WriteLine($"You are close!");                
+                if (-5 <= numberRange && numberRange <= 5 && i >= 1) // if user's number is lower up to 5 or higher up to 5 random number
+                    Console.WriteLine($"You are close!");
             }
             Console.WriteLine("You had too many attempts! Try again!");
         }
