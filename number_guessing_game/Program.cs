@@ -29,12 +29,16 @@ namespace number_guessing_game
                 {    
                     Console.WriteLine($"Too High! Left attempts: {i}");
                 }
+
                 if (randomNumber > userNumber && i >= 1) // if the random number is higher than user's input number
                 {    
-                Console.WriteLine($"Too Low! Left attempts: {i}");
+                    Console.WriteLine($"Too Low! Left attempts: {i}");
                 }
+
                 if (-5 <= numberRange && numberRange <= 5 && i >= 1) // if user's number is lower up to 5 or higher up to 5 random number
+                {
                     Console.WriteLine($"You are close!");
+                }
             }
             Console.WriteLine("You had too many attempts! Try again!");
         }
