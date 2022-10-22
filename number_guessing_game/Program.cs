@@ -11,14 +11,15 @@ namespace number_guessing_game
                 "\n\tYou will enter a number and computer will give you " +
                 "answer if it is too low or too high.\n\tYou will have 5 tries and if you can't get the right number you will loose!");
             int randomNumber = new Random().Next(101); // it gives the random number from 0 to 100
+            int userNumber;
+            int numberRange;
              
             // this will be using to limit guesses
             for (int i = 4; i >= 0; i--) // this code is active until user gets right number or until it uses all 5 tries
             {
                 Console.WriteLine("Guess Your number!");
-                int userNumber = Convert.ToInt32(Console.ReadLine()); //converting user's string input to int
-                int numberRange = userNumber - randomNumber; // count difference between user input number and random number
-
+                userNumber = Convert.ToInt32(Console.ReadLine()); //converting user's string input to int
+                
                 if (randomNumber == userNumber)
                 {
                     Console.WriteLine($"You win! Left attempts {i}. Good job!");
@@ -35,12 +36,15 @@ namespace number_guessing_game
                     Console.WriteLine($"Too Low! Left attempts: {i}");
                 }
 
+                numberRange = userNumber - randomNumber; // count difference between user input number and random number
+
                 if (-5 <= numberRange && numberRange <= 5 && i >= 1) // if user's number is lower up to 5 or higher up to 5 random number
                 {
                     Console.WriteLine($"You are close!");
                 }
             }
             Console.WriteLine("You had too many attempts! Try again!");
+            Console.WriteLine($"The Right Number: {randomNumber}"); // Function will show randomNumber for player after all attempts was used
         }
     }
 }
