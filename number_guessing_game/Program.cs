@@ -17,26 +17,29 @@
                 Console.WriteLine("Guess Your number!");
                 userNumber = Convert.ToInt32(Console.ReadLine()); //converting user's string input to int
                 
-                if (randomNumber == userNumber)
-                {
-                    Console.WriteLine($"You win! Left attempts {i}. Good job!");
-                    return; // quiting the for loop if the user input is equal to random number
-                }
-                // i >= 1 is to filter output after the last try, user will get only "Try again!" output instead of all possible
-                if (randomNumber < userNumber && i >= 1) // if the random number is lower than user's input number and {i} is bigger than 1
-                {    
-                    Console.WriteLine($"Too High! Left attempts: {i}");
-                }
+                    if (randomNumber == userNumber)
+                    {
+                        Console.WriteLine($"You win! Left attempts {i}. Good job!");
+                        return; // quiting the for loop if the user input is equal to random number
+                    }
+                    if (i >= 1)
+                    {
+                        // i >= 1 is to filter output after the last try, user will get only "Try again!" output instead of all possible
+                        if (randomNumber < userNumber) // if the random number is lower than user's input number and {i} is bigger than 1
+                        {
+                            Console.WriteLine($"Too High! Left attempts: {i}");
+                        }
 
-                if (randomNumber > userNumber && i >= 1) // if the random number is higher than user's input number
-                {    
-                    Console.WriteLine($"Too Low! Left attempts: {i}");
-                }
+                        if (randomNumber > userNumber) // if the random number is higher than user's input number
+                        {
+                            Console.WriteLine($"Too Low! Left attempts: {i}");
+                        }
 
-                if (Math.Abs(userNumber - randomNumber) <=5 && i >= 1) // if user's number is lower up to 5 or higher up to 5 random number
-                {
-                    Console.WriteLine($"You are close!");
-                }
+                        if (Math.Abs(userNumber - randomNumber) <= 5) // if user's number is lower up to 5 or higher up to 5 random number
+                        {
+                            Console.WriteLine($"You are close!");
+                        }
+                    }
             }
             Console.WriteLine("You had too many attempts! Try again!");
             Console.WriteLine($"The Right Number: {randomNumber}"); // Function will show randomNumber for player after all attempts was used
