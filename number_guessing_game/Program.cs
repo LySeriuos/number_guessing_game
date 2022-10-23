@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.Metrics;
-
-namespace number_guessing_game
+﻿namespace number_guessing_game
 {
     internal class Program
     {
